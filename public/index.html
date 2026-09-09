@@ -120,25 +120,35 @@
       <button class="panel-close" id="mobileCloseBtn">&times;</button>
     </div>
     <div class="setting-group">
-      <label>1. Open on Phone (Same Wi-Fi)</label>
-      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">Connect your phone to the same Wi-Fi network and open:</p>
-      <div style="display: flex; gap: 6px; align-items: center; background: var(--bg-surface); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 12px;">
-        <code id="phoneLocalUrl" style="font-weight: 600; color: var(--accent-gold); flex: 1; font-size: 0.85rem;">http://192.168.1.11:3000</code>
-        <button id="copyPhoneUrlBtn" class="btn btn-sm btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;">Copy</button>
+      <label style="display: flex; align-items: center; gap: 6px;">
+        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+        <strong>1. Worldwide Live URL (Active Now!)</strong>
+      </label>
+      <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 8px;">Accessible on ANY phone anywhere in the world (cellular 4G/5G or Wi-Fi):</p>
+      <div style="display: flex; gap: 6px; align-items: center; background: var(--bg-surface); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 8px;">
+        <input type="text" id="phoneLiveUrl" readonly value="https://frames-voluntary-tucson-instructional.trycloudflare.com" style="font-weight: 600; color: var(--accent-gold); flex: 1; font-size: 0.8rem; background: transparent; border: none; outline: none;">
+        <button id="copyLiveUrlBtn" class="btn btn-sm btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;">Copy</button>
       </div>
-      <div style="text-align: center; padding: 8px; background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+      <div style="text-align: center; padding: 8px; background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 12px;">
         <img id="phoneQrCode" alt="Scan QR code with phone camera" width="140" height="140" style="border-radius: 6px; display: inline-block; background: #fff; padding: 4px;">
-        <span style="font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 6px;">Point your phone camera at the QR code to open</span>
+        <span style="font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 6px;">Point your phone camera at the QR code to open instantly</span>
       </div>
     </div>
-    <div class="setting-group" style="margin-top: 14px; border-top: 1px solid var(--border-subtle); padding-top: 12px;">
-      <label>2. Deploy Live 100% Free Forever</label>
-      <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 10px;">
-        You can host this permanently on <strong>Vercel</strong> or <strong>Render</strong> for free. Configuration files (<code>vercel.json</code> & <code>render.yaml</code>) are included in this project!
+    <div class="setting-group" style="border-top: 1px solid var(--border-subtle); padding-top: 10px;">
+      <label>2. Local Wi-Fi Address</label>
+      <div style="display: flex; gap: 6px; align-items: center; background: var(--bg-surface); padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+        <input type="text" id="phoneLocalUrl" readonly value="http://192.168.1.11:3000" style="font-size: 0.8rem; flex: 1; background: transparent; border: none; outline: none; color: var(--text-secondary);">
+        <button id="copyPhoneUrlBtn" class="btn btn-sm btn-secondary" style="padding: 3px 8px; font-size: 0.75rem;">Copy</button>
+      </div>
+    </div>
+    <div class="setting-group" style="margin-top: 12px; border-top: 1px solid var(--border-subtle); padding-top: 10px;">
+      <label>3. Permanent Cloud Hosting (Render / GitHub)</label>
+      <p style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 8px;">
+        Git repository is already initialized! Double-click <strong><code>push_to_github.bat</code></strong> in your project folder to push to your GitHub repo, then connect to Render.com.
       </p>
       <div style="display: flex; gap: 8px;">
-        <a href="https://render.com" target="_blank" class="btn btn-sm btn-primary" style="flex: 1; text-align: center; text-decoration: none;">Render.com</a>
-        <a href="https://vercel.com" target="_blank" class="btn btn-sm btn-secondary" style="flex: 1; text-align: center; text-decoration: none;">Vercel.com</a>
+        <a href="https://render.com" target="_blank" class="btn btn-sm btn-primary" style="flex: 1; text-align: center; text-decoration: none;">Open Render.com</a>
+        <a href="https://github.com/new" target="_blank" class="btn btn-sm btn-secondary" style="flex: 1; text-align: center; text-decoration: none;">Create GitHub Repo</a>
       </div>
     </div>
   </div>

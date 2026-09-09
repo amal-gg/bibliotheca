@@ -108,6 +108,8 @@ const elements = {
   mobileAccessBtn: document.getElementById('mobileAccessBtn'),
   mobileModal: document.getElementById('mobileModal'),
   mobileCloseBtn: document.getElementById('mobileCloseBtn'),
+  phoneLiveUrl: document.getElementById('phoneLiveUrl'),
+  copyLiveUrlBtn: document.getElementById('copyLiveUrlBtn'),
   phoneLocalUrl: document.getElementById('phoneLocalUrl'),
   copyPhoneUrlBtn: document.getElementById('copyPhoneUrlBtn'),
   phoneQrCode: document.getElementById('phoneQrCode'),
@@ -509,6 +511,15 @@ function stopAmbientSound() {
 
 // --- MOBILE ACCESS & QR CODE ENGINE ---
 async function initMobileInfo() {
+  const liveUrl = 'https://frames-voluntary-tucson-instructional.trycloudflare.com';
+  if (elements.phoneLiveUrl) {
+    elements.phoneLiveUrl.value = liveUrl;
+  }
+  if (elements.phoneQrCode) {
+    // High quality QR code via public QR service pointing to the live global URL
+    elements.phoneQrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(liveUrl)}&bgcolor=fbf0d9&color=2c221e`;
+  }
+
   try {
     const res = await fetch('/api/network-info');
     if (res.ok) {
@@ -516,10 +527,6 @@ async function initMobileInfo() {
       const localUrl = data.url || `http://${window.location.hostname}:${window.location.port || 3000}`;
       if (elements.phoneLocalUrl) {
         elements.phoneLocalUrl.value = localUrl;
-      }
-      if (elements.phoneQrCode) {
-        // High quality QR code via public QR service
-        elements.phoneQrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(localUrl)}&bgcolor=fbf0d9&color=2c221e`;
       }
     }
   } catch (err) {
@@ -541,6 +548,23 @@ async function initMobileInfo() {
   if (elements.mobileCloseBtn) {
     elements.mobileCloseBtn.addEventListener('click', () => {
       elements.mobileModal.classList.add('hidden');
+    });
+  }
+  if (elements.copyLiveUrlBtn) {
+    elements.copyLiveUrlBtn.addEventListener('click', async () => {
+      if (elements.phoneLiveUrl) {
+        try {
+          await navigator.clipboard.writeText(elements.phoneLiveUrl.value);
+          const original = elements.copyLiveUrlBtn.textContent;
+          elements.copyLiveUrlBtn.textContent = 'Copied! ✓';
+          setTimeout(() => {
+            elements.copyLiveUrlBtn.textContent = original;
+          }, 2000);
+        } catch {
+          elements.phoneLiveUrl.select();
+          document.execCommand('copy');
+        }
+      }
     });
   }
   if (elements.copyPhoneUrlBtn) {
