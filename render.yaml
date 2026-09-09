@@ -1,0 +1,10 @@
+﻿services:
+  - type: web
+    name: bibliotheca-reader
+    env: node
+    plan: free
+    buildCommand: ''
+    startCommand: 'node server.mjs'
+    envVars:
+      - key: NODE_VERSION
+        value: 20

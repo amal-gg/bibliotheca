@@ -1,0 +1,21 @@
+{
+  "name": "bibliotheca-literature-reader",
+  "version": "1.0.0",
+  "description": "Interactive random literature explorer and long-form reader powered by Project Gutenberg and Gutendex.",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "keywords": [
+    "literature",
+    "books",
+    "gutenberg",
+    "reader",
+    "philosophy",
+    "classics"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

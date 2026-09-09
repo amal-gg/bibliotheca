@@ -1,0 +1,14 @@
+# Node
+node_modules/
+
+# Cache
+.cache/
+
+# Binary tools
+cloudflared.exe
+.git-bin/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
