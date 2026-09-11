@@ -35,20 +35,6 @@
 
 ---
 
-## 🚀 How to Launch
-
-### Option 1: Double-Click (Windows)
-Double-click `start.bat` in this folder. It will start the server and automatically launch your default browser to `http://localhost:3000`.
-
-### Option 2: Command Line
-```powershell
-# In this directory:
-node server.mjs
-```
-Then open [http://localhost:3000](http://localhost:3000) in any web browser.
-
----
-
 ## 🛠️ Tech Architecture
 
 - **Backend (`server.mjs`)**: Lightweight, zero-dependency Node.js HTTP server with caching and API endpoints.
